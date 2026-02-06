@@ -97,8 +97,18 @@ article {
     color: purple; 
     margin: 25px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    line-height: 1.6em;
+    flex-wrap: wrap;
 }
 
+.logoFix {
+    width: 5%;
+    flex-direction: row;
+}
+
+.logoFix:hover {
+    width: 5%;
+}
 
 footer {
     text-align: center;
