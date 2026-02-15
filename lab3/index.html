@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 3: Quiz</title>
+    <script src="https://unpkg.com/underscore@1.13.7/underscore-umd-min.js"></script>
+    <script src="js/script.js" defer></script>
+
+</head>
+<body>
+    <h1>CSS Quiz</h1>
+
+    1. Who preformed at the Superbowl this year?
+    <br>
+    <!-- <label><input type="radio" name="q1" value="fontColor"> font-color</label>
+    <label><input type="radio" name="q1" value="color"> color</label>
+    <label><input type="radio" name="q1" value="textColor"> text-color</label> -->
+    
+    <div id="q1ChoicesDiv"></div>
+    <div id="answer"></div>
+
+    <hr>
+
+    2. Faavv Artist?
+    <input type="text" id="q2">
+    <div id="answer2"></div>
+    <hr>
+
+    3. What Artist performed "Umbrella" with Rihanna in 2007?
+    <select id="q3">
+        <option value="Justin Timberlake"> Justin Timberlake </option>
+        <option value="Amy Winehouse"> Amy Winehouse </option>
+        <option value="Jay-Z"> Jay-Z </option>
+        <option value="Kanye"> Kanye </option>
+    </select>
+    <div id="answer3"></div>
+
+    <hr>
+
+    4. What year was the Album, "Hybrid Theory" by Linkin Park released?
+    <input id="q4" type="number" min="1950" max="2026" step="1">
+    <div id="answer4"></div>
+    <hr>
+    <button>Submit Quiz</button>
+
+</body>
+</html>
