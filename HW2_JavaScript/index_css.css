@@ -1,0 +1,35 @@
+body {
+    background-image: url("../img/background.jpg");
+    background-position: center;
+    background-size: cover;
+    margin: 0%;
+    padding: 0%;
+}
+
+h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: italic;
+    color: #ffd60a; 
+    text-shadow: 
+        0 0 5px #ffd60a, 
+        0 0 15px #ffd60a, 
+        0 0 25px #ffd60a;
+    text-transform: uppercase;
+}
+
+div {
+    font-family: 'Times New Roman', Times, serif;
+    color: #e0e1dd;
+    font-weight: bolder;
+    font-style: oblique;
+    font-size: large;
+    border: 2px solid #ffd60a;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #1b263b, #0d1b2a);    padding: 15px;
+}
+
+span {
+    color: #ffd60a;
+    font-weight: bolder;
+    text-decoration: underline;
+}

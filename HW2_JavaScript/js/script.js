@@ -1,17 +1,17 @@
 let superheroes = [
     "superman",
     "batman",
-    "spider-Man",
-    "iron Man",
-    "captain America",
-    "black Panther",
-    "wonder Woman",
-    "wolverine",
-    "the Flash",
-    "hulk",
-    "black Widow",
-    "green Lantern",
-    "booster Gold",
+    "shazam",
+    "supergirl",
+    "beastboy",
+    "raven",
+    "starfire",
+    "aqualad",
+    "flash",
+    "batgirl",
+    "cyborg",
+    "aquaman",
+    "robin",
     "nightwing"
 ]
 let answer = '';
@@ -30,14 +30,28 @@ function genBtns() {
   let buttonsHTML = 'abcdefghijklmnopqrstuvwxyz'.split('').map(letter =>
     `
       <button
-        class="btn btn-lg btn-primary m-2"
-        id='` + letter + `'
-        onClick="handleGuess('` + letter + `')"
+        class="btn btn-lg btn-primary m-2 letter-btn"
+        id="${letter}"
+        data-letter="${letter}"
       >
-        ` + letter + `
+        ${letter}
       </button>
     `).join('');
     document.getElementById('keyboard').innerHTML = buttonsHTML;    
+    const buttons = document.querySelectorAll('.letter-btn');
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            handleGuess(this.dataset.letter);
+        });
+        button.addEventListener('mouseenter', function() {
+            this.classList.remove('btn-primary');
+        });
+        button.addEventListener('mouseleave', function() {
+            if (!this.disabled) {
+                this.classList.add('btn-primary');
+            }
+        });
+    });
 }
 
 function handleGuess(chosenLetter) {
@@ -85,7 +99,7 @@ function updateMistakes() {
 function reset() {
     mistakes = 0;
     guessed = [];
-    document.getElementById('hangmanPic').src = './img/0.jpg/';
+    document.getElementById('hangmanPic').src = './img/0.jpg';
     randWord();
     guessedWord();
     updateMistakes();
