@@ -3,6 +3,7 @@ let zipElement = document.querySelector("#zipCode");
 zipElement.addEventListener("change", dispCity);
 zipElement.addEventListener("change", dispLat);
 zipElement.addEventListener("change", dispLon);
+document.querySelector("#state").addEventListener("change", dispState);
 document.querySelector("#password").addEventListener("click", dispPw);
 document.querySelector("#password").addEventListener("change", signUpErr);
 document.querySelector("#usernameTextBox").addEventListener("change", usernameAvailability);
@@ -77,8 +78,8 @@ async function dispPw() {
 }
 
 async function dispCounty() {
-    let county = document.querySelector("#state").value;
-    let url = "https://csumb.space/api/countListAPI.php?state=" + county;
+    let countySel = document.querySelector("#state").value;
+    let url = "https://csumb.space/api/countyListAPI.php?state=" + countySel;
     try {
         const response = await fetch(url);
         if (!response.ok) {
@@ -87,11 +88,10 @@ async function dispCounty() {
         const data = await response.json();
         console.log(data);
 
+        document.querySelector("#county").innerHTML = "";
         for (let i of data) {
             let optionEl = document.createElement("option");
             optionEl.textContent = i.county;
-            optionEl.value = i.usps;
-
             document.querySelector("#county").append(optionEl);
         }
 
@@ -117,9 +117,11 @@ async function usernameAvailability() {
 
         if(data.available) {
             document.querySelector("#usernameAvailability").textContent = "Username is Available!";
+            document.querySelector("#usernameAvailability").style.color = "green";
         }
         else {
             document.querySelector("#usernameAvailability").textContent = "Username is NOT Available!";
+            document.querySelector("#usernameAvailability").style.color = "red";
         }
 
     } catch (err) {
@@ -132,7 +134,7 @@ async function usernameAvailability() {
 }
 
 async function signUpErr() {
-    let password = document.querySelector("#password").textContent;
+    let password = document.querySelector("#password").value;
     if (password.length < 6) {
         document.querySelector("#signUpErr").textContent = "Error";
         document.querySelector("#signUpErr").style.color = "red";
