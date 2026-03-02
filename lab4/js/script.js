@@ -6,7 +6,7 @@ zipElement.addEventListener("change", dispLon);
 document.querySelector("#state").addEventListener("change", dispState);
 document.querySelector("#password").addEventListener("click", dispPw);
 document.querySelector("#password").addEventListener("change", signUpErr);
-document.querySelector("#usernameTextBox").addEventListener("change", usernameAvailability);
+document.querySelector("#usernameTextBox").addEventListener("change", usernameAvailability); 
 
 
 dispState();
@@ -47,6 +47,12 @@ async function dispCity() {
     let data = await response.json();
     console.log(data);
 
+    if (!data.city) {
+        document.querySelector("#zipErr").textContent = "Zip code not found";
+        document.querySelector("#zipErr").style.color = "red";
+        return;
+    }
+    document.querySelector("#zipErr").textContent = "";
     document.querySelector("#city").textContent = data.city;
 }
 
@@ -106,7 +112,15 @@ async function dispCounty() {
 
 async function usernameAvailability() {
     let usernameAvailability = document.querySelector("#usernameTextBox").value;
+    let messageEl = document.querySelector("#usernameAvailability");
     let url = "https://csumb.space/api/usernamesAPI.php?username=" + usernameAvailability;
+    
+    if (usernameAvailability.length < 3) {
+        messageEl.textContent = "Username must be at least 3 characters long";
+        messageEl.style.color = "red";
+        return;
+    }
+    
     try {
         const response = await fetch(url);
         if (!response.ok) {
@@ -136,7 +150,7 @@ async function usernameAvailability() {
 async function signUpErr() {
     let password = document.querySelector("#password").value;
     if (password.length < 6) {
-        document.querySelector("#signUpErr").textContent = "Error";
+        document.querySelector("#signUpErr").textContent = "Password must be at least 6 characters long!";
         document.querySelector("#signUpErr").style.color = "red";
     } else {
         document.querySelector("#signUpErr").textContent = "";

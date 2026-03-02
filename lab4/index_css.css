@@ -1,0 +1,38 @@
+body {
+    background-color: #034078;
+}
+
+h1 {
+    background-color: #e4dfda;
+    color: #63373c;
+    border: 5px solid #011d4d;
+    border-radius: 25px;
+    text-align: center;
+    padding: 8px;
+}
+
+legend {
+    background-color: #63373c;
+    color: #e4dfda;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+fieldset {
+    background-color: #1282a2;
+    border: 5px solid #011d4d;
+    border-radius: 5px;
+    color: #e4dfda;
+    padding: 20px;
+}
+
+input {
+    color:#63373c;
+    border: 3px solid #011d4d;
+    border-radius: 5px;
+}
+
+span {
+    color: #011d4d;
+    text-decoration: underline #e4dfda;
+}

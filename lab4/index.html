@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Lab 4: Sign Up Form </title>
     <script src="js/script.js" defer></script>
+    <link href="index_css.css" rel="stylesheet">
 </head>
 
 <body>
@@ -17,7 +18,7 @@
         Last Name: <input type="text"><br>
         Email: <input type="text"><br>
         Phone Number: <input type="text"><br><br>
-        Zip Code: <input id="zipCode" type="text"><br>
+        Zip Code: <input id="zipCode" type="text"><span id="zipErr"></span><br>
         City: <span id="city"></span>
         <br>
         Latitude: <span id="latitude"></span>
@@ -30,7 +31,7 @@
         Desired Username: <input id="usernameTextBox" type="text"><span id="usernameAvailability"></span><br>
         Password: <input id="password" type="password"><span id="suggestedPw"></span><br>
         <div id="signUpErr"></div>
-        Type Password Again: <input type="password"><br>
+        Type Password Again: <input type="password"><span id="matching"></span><br>
         <input type="submit" value="Sign Up!">
     </fieldset>
 
